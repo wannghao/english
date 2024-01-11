@@ -1,0 +1,81 @@
+<template>
+  <div class="imgViews">
+    <div v-for="(t,index) in list" :key="index">
+      <div v-show="active === index">
+      <img v-show="showAll" :src="'./all/'+ t + '.jpg'" class="img" @click="showAll=!showAll">
+      <img v-show="!showAll" :src="'./all/'+ t + '(1).png'" class="img" @click="showAll=!showAll">
+      </div>
+    </div>
+    <el-button @click="subtraction" class="up-btn">上一页</el-button>
+    <el-button @click="addition" class="down-btn">下一页</el-button>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "imgViews",
+  props:{
+    list:Array
+  },
+  data() {
+    return {
+      active:0,
+      showAll:true
+    }
+  },
+  computed: {},
+  watch: {
+    active:{
+      handler(){
+        this.showAll = false
+      },
+      immediate:true
+    }
+  },
+  created() {
+  },
+  mounted() {
+  },
+  methods: {
+    subtraction(){
+      if (this.active === 0){
+        // this.$message.error('已经是第一张了')
+        this.$emit('change',-1)
+        return
+      }
+      this.active--
+    },
+    addition(){
+      if (this.active === this.list.length-1){
+        // this.$message.error('已经是最后一张了')
+        this.$emit('change',1)
+        return
+      }
+      this.active++
+    }
+  }
+}
+</script>
+
+
+<style scoped >
+.imgViews {
+  position: relative;
+}
+  .img{
+    width: 700px;
+    height: 1000px;
+  }
+  .up-btn{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-500px,0);
+  }
+.down-btn{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(500px,0);
+}
+</style>
