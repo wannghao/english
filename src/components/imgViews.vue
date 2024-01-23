@@ -2,18 +2,19 @@
   <div class="imgViews">
     <div v-for="(t,index) in list" :key="index">
       <div v-show="active === index">
-        <img v-show="showAll" :src="'./all/'+ t + '.jpg'" class="img" @click="showAll=!showAll">
-        <img v-show="!showAll" :src="'./all/'+ t + '(1).png'" class="img" @click="showAll=!showAll">
+        <img v-show="showAll" :src="'./pressAll/'+ t + '.jpg'" class="img" @click="showAll=!showAll">
+        <img v-show="!showAll" :src="'./pressAll/'+ t + '(1).png'" class="img" @click="showAll=!showAll">
       </div>
     </div>
-    <el-button class="up-btn" @click="subtraction">上一页</el-button>
-    <el-button class="down-btn" @click="addition">下一页</el-button>
+    <button class="up-btn" @click="subtraction">上一页</button>
+    <button class="down-btn" @click="addition">下一页</button>
   </div>
 </template>
 
 <script>
+
 export default {
-  name: "imgViews",
+  name: "WViews",
   props: {
     list: Array
   },

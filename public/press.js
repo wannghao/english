@@ -5,6 +5,7 @@ const path = require('path');
 function compressImage(inputPath, outputPath, quality = 85) {
     sharp(inputPath)
         .jpeg({quality: quality})
+        .rotate()
         .toFile(outputPath, (err, info) => {
             if (err) {
                 console.error(`压缩图片 ${inputPath} 时发生错误:`, err);
