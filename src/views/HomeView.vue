@@ -14,7 +14,7 @@
       </div>
     </div>
     <template v-for="(item,key) in list">
-      <w-views v-show="active===key" :key="key" :list="item" @change="changePage"></w-views>
+      <w-views v-show="active===key" :key="key" :ref="'w_'+key" :list="item" @change="changePage"></w-views>
     </template>
   </div>
 </template>
@@ -42,6 +42,11 @@ export default {
     this.list = Object.freeze(dataList)
     this.imgItem = this.list[1]
     // Object.freeze(this.list)
+    window.addEventListener('keydown', this.handleKeyDown);
+  },
+  beforeDestroy() {
+    // 在组件销毁前移除事件监听器，以防止内存泄漏
+    window.removeEventListener('keydown', this.handleKeyDown);
   },
   methods: {
     goTo(key) {
@@ -56,7 +61,26 @@ export default {
         this.active = n.toString()
         this.goTo(this.active)
       }
-    }
+    },
+    handleKeyDown(event) {
+      // 监听左箭头和右箭头键
+      const dom = this.$refs['w_' + this.active][0]
+      // console.log(this, dom);
+      console.log(event);
+      if (event.key === 'ArrowLeft') {
+        // console.log('Left arrow key pressed');
+        dom.subtraction()
+        // 在这里执行左箭头键的逻辑
+      } else if (event.key === 'ArrowRight') {
+        // console.log('Right arrow key pressed');
+        dom.addition()
+        // 在这里执行右箭头键的逻辑
+      } else if (event.key === 'Enter') {
+        // console.log('Enter key pressed');
+        dom.showAll = !dom.showAll
+        // 在这里执行回车键的逻辑
+      }
+    },
   }
 }
 </script>

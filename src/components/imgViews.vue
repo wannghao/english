@@ -35,8 +35,7 @@ export default {
   },
   created() {
   },
-  mounted() {
-  },
+
   methods: {
     subtraction() {
       if (this.active === 0) {
@@ -45,6 +44,13 @@ export default {
         return
       }
       this.active--
+      this.scrollToTop()
+    },
+    scrollToTop() {
+      console.log('指定');
+      this.$nextTick(() => {
+        window.scrollTo(0, 0);
+      })
     },
     addition() {
       if (this.active === this.list.length - 1) {
@@ -53,6 +59,7 @@ export default {
         return
       }
       this.active++
+      this.scrollToTop()
     }
   }
 }
