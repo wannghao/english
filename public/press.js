@@ -38,4 +38,9 @@ const inputFolderPath = './all';
 const outputFolderPath = './pressAll';
 const compressionQuality = 85;
 
-compressImagesInFolder(inputFolderPath, outputFolderPath, compressionQuality);
+compressImagesInFolder(inputFolderPath, outputFolderPath, compressionQuality)
+
+const _inputFolderPath = './secondAll';
+const _outputFolderPath = './pressSecondAll';
+
+compressImagesInFolder(_inputFolderPath, _outputFolderPath, compressionQuality);

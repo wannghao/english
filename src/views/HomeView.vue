@@ -35,7 +35,7 @@ export default {
     return {
       active: '1',
       imgItem: [],
-      list: {}
+      list: {},
     }
   },
   mounted() {

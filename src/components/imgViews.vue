@@ -2,8 +2,8 @@
   <div class="imgViews">
     <div v-for="(t,index) in list" :key="index">
       <div v-show="active === index">
-        <img v-show="showAll" :src="'./pressAll/'+ t + '.jpg'" class="img" @click="showAll=!showAll">
-        <img v-show="!showAll" :src="'./pressAll/'+ t + '(1).png'" class="img" @click="showAll=!showAll">
+        <img v-show="showAll" :src="src+ t + '.jpg'" class="img" @click="showAll=!showAll">
+        <img v-show="!showAll" :src="src+ t + '(1).png'" class="img" @click="showAll=!showAll">
       </div>
     </div>
     <button class="up-btn" @click="subtraction">上一页</button>
@@ -16,7 +16,11 @@
 export default {
   name: "WViews",
   props: {
-    list: Array
+    list: Array,
+    src: {
+      type: String,
+      default: './pressAll/'
+    }
   },
   data() {
     return {
