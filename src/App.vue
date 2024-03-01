@@ -5,6 +5,8 @@
       |
       <router-link to="/secondHome">图片2</router-link>
       |
+      <router-link to="/simulate">全真模拟</router-link>
+      |
       <router-link to="/about">单词复习</router-link>
     </nav>
     <router-view/>
