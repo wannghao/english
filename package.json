@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve ",
     "dev": "node --max_old_space_size=9096 run serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build copy.js",
     "lint": "vue-cli-service lint",
     "fix-memory-limit": "cross-env LIMIT=8192 increase-memory-limit"
   },
