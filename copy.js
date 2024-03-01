@@ -1,19 +1,10 @@
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
 
-const sourcePath = path.join(__dirname, 'dist', 'all');
-const destPath = path.join(__dirname, 'all');
+const sourcePath = path.join(__dirname, 'dist');
+const destPath = __dirname;
 
-// 检查目标目录是否存在，如果不存在则创建
-if (!fs.existsSync(destPath)) {
-    fs.mkdirSync(destPath, {recursive: true});
-}
-
-// 复制文件
-fs.copyFile(sourcePath, destPath, (err) => {
-    if (err) {
-        console.error('Error copying file:', err);
-    } else {
-        console.log('File copied successfully!');
-    }
-});
+// 复制目录
+fs.copy(sourcePath, destPath, {overwrite: true})
+    .then(() => console.log('Directory copied successfully!'))
+    .catch(err => console.error('Error copying directory:', err));
