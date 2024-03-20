@@ -7,6 +7,8 @@
       |
       <router-link to="/simulate">全真模拟</router-link>
       |
+      <router-link to="/pastexam">真题</router-link>
+      |
       <router-link to="/about">单词复习</router-link>
     </nav>
     <router-view/>

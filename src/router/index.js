@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import SecondHomeView from '../views/SecondHomeView.vue'
 import simulateView from '../views/simulate.vue'
+import pastexamView from '../views/pastexamView.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
         path: '/simulate',
         name: 'simulate',
         component: simulateView
+    },
+    {
+        path: '/pastexam',
+        name: 'pastexam',
+        component: pastexamView
     },
     // {
     //   path: '/about',

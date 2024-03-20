@@ -50,3 +50,8 @@ const _simulateinputFolderPath = './simulate';
 const _simulateoutputFolderPath = './pressSimulate';
 
 compressImagesInFolder(_simulateinputFolderPath, _simulateoutputFolderPath, compressionQuality);
+
+const _pastexaminputFolderPath = './pastexam';
+const _pastexamoutputFolderPath = './pressPastexam';
+
+compressImagesInFolder(_pastexaminputFolderPath, _pastexamoutputFolderPath, compressionQuality);
